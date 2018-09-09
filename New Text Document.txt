@@ -1,0 +1,56 @@
+#include<stdio.h>
+int s,r=0,f=0,size=5,a[5],i;
+
+
+
+void enqueue(int item){
+
+s=(r+1)%(size+1);
+if(s==f)
+    return;
+else
+{
+    r=s;
+    a[r]=item;
+}
+}
+
+
+
+void dequeue(){
+
+if(f==r)
+    printf("Empty");
+else{
+f=(f+1)%(size+1);
+a[f]=NULL;
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+int main()
+{
+enqueue(10);
+enqueue(20);
+enqueue(30);
+dequeue();
+enqueue(40);
+for(i=f+1;i<=r;i=((i+1)%(size+1)))
+    printf("%d\n",a[i]);
+
+
+
+
+
+
+return 0;
+}
